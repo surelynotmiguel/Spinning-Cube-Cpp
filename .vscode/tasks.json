@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:/mingw64/bin/g++.exe",
+            "args": [
+                "-g",
+                "-std=c++17",
+                "-I",
+                "C:/DEV/vcpkg/installed/x64-windows/include",
+                "-I${workspaceFolder}/include",
+                "-L${workspaceFolder}/lib",
+                "${workspaceFolder}/src/Main.cpp",
+                "${workspaceFolder}/src/Program.cpp",
+                "${workspaceFolder}/src/Global.cpp",
+                "${workspaceFolder}/src/ShaderUtils.cpp",
+                "-lglfw3dll",
+                "-lglew32",
+                "-lopengl32",
+                "-lfreetype",
+                "-optl",
+                "-mwindows",
+                "-o",
+                "${workspaceFolder}/Shape.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: C:/mingw64/bin/g++.exe"
+        }
+    ]
+}
