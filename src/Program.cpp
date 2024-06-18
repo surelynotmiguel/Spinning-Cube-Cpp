@@ -50,7 +50,6 @@ Program::Program(){
         0, 5/6, 0, 6/6, 1, 6/6,
     };
 
-    this->colorBuffer = 0;
     this->theta = {1.0f, 2.0f, 3.0f};
 }
 
@@ -94,13 +93,13 @@ void Program::drawShape(){
 
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(GLfloat), vertices.data(), GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
     glEnableVertexAttribArray(0);
 
     glGenBuffers(1, &tbo);
     glBindBuffer(GL_ARRAY_BUFFER, tbo);
-    glBufferData(GL_ARRAY_BUFFER, textureCoords.size() * sizeof(float), textureCoords.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, textureCoords.size() * sizeof(GLfloat), textureCoords.data(), GL_STATIC_DRAW);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
     glEnableVertexAttribArray(1);
 
@@ -131,6 +130,8 @@ void Program::drawShape(){
         Global::showMessage("Could not find uniform 'theta'");
         exit(-1);
     }
+
+    glEnable(GL_DEPTH_TEST);
 
     while(!glfwWindowShouldClose(this->window)){
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);

@@ -14,12 +14,10 @@ private:
     GLFWwindow* window;
     ShaderUtils shaderUtils;
 
-    vector<float> vertices;
-    vector<vector<float>> cubeVertices;
-    vector<float> textureCoords;
-    vector<float> theta;
-    int colorBuffer;
-
+    vector<GLfloat> vertices;
+    vector<vector<GLfloat>> cubeVertices;
+    vector<GLfloat> textureCoords;
+    vector<GLfloat> theta;
     
 public:
     Program();
